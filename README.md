@@ -103,9 +103,9 @@ Backend sends user messages to Groq and streams back the assistant’s response.
 ## 📸 Screenshots
 
 ✅ Task & Feedback Tabs
-<img src="./screenshots/task-feedback-ui.jpg" width="500" alt="Task & Feedback UI"/>
+<img src="./screenshots/task-manager-ui.png" width="500" alt="Task & Feedback UI"/>
 🤖 AI Chat Assistant
-<img src="./screenshots/ai-chat-ui.jpg" width="500" alt="AI Chat UI"/>
+<img src="./screenshots/ai-chat-ui.png" width="500" alt="AI Chat UI"/>
 
 ---
 
