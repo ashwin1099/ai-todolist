@@ -1,175 +1,125 @@
-Absolutely! Here's a complete, **clean**, and **professional README.md** tailored to your fullstack chatbot project. It includes setup instructions, `/ask` API usage (connected to your chatbot UI), and screenshots section placeholders.
 
----
+# 🧠 Simple AI-Enhanced Task Manager
 
-````markdown
-# 🤖 AI Chatbot App (Next.js + Express + OpenRouter)
-
-A fullstack AI chatbot built using **Next.js** frontend and **Express.js** backend, powered by **OpenRouter LLMs** (like `mistralai/mixtral-8x7b-instruct`). This app features a beautiful interactive UI that supports real-time, context-aware chat — all running locally.
-
+A clean full-stack app combining a To-do Manager, Feedback Tracker, and an AI Chat Assistant powered by **Groq's model**.
 ---
 
 ## ✨ Features
 
-- 💬 Modern, responsive chatbot UI (Next.js + Axios)
-- 🧠 LLM-powered responses using OpenRouter (Mistral/Mixtral/etc.)
-- 🧵 Full context retained across conversation
-- ⚙️ Backend API route `/ask` to handle LLM requests
-- 🔐 Secure `.env` API key management
-- 🖼️ Clean design with stat cards and message bubbles
+* ✅ **To-do Manager**: Add and track your daily tasks.
+* 💬 **Feedback Tracker**: Collect and view feedback entries.
+* 🤖 **AI Chat Assistant**: Ask questions or get help using LLM-powered responses via Groq API.
+* 🌐 Built with **Next.js** (frontend) + **Express.js** (backend).
 
 ---
 
-## 🖼️ Screenshots
+## 🛠️ Tech Stack
 
-| Chat Interface | LLM in Action |
-|----------------|---------------|
-| ![chat-ui](./screenshots/chat-ui.png) | ![llm-response](./screenshots/llm-response.png) |
-
-> 💡 Add your own screenshots in a `/screenshots` folder and update these links.
-
----
-
-## 📦 Tech Stack
-
-| Layer      | Tech                     |
-|------------|--------------------------|
-| Frontend   | Next.js (React, Axios)   |
-| Backend    | Express.js (Node.js)     |
-| LLM        | OpenRouter.ai (Mistral)  |
-| Styling    | CSS / Tailwind (your choice) |
+* **Frontend**: Next.js (React)
+* **Backend**: Node.js + Express
+* **LLM Provider**: Groq (`llama3-70b-8192`)
+* **API Communication**: Axios
 
 ---
 
 ## 🚀 Getting Started
 
-### 1. Clone the Repo
+### 1. Clone the repo
 
 ```bash
-git clone https://github.com/your-username/ai-chatbot-app.git
-cd ai-chatbot-app
-````
+git clone https://github.com/ashwin1099/ai-todolist.git
+cd ai-todo-feedback
+```
 
-### 2. Install Dependencies
-
-#### Backend Setup
+### 2. Install frontend dependencies
 
 ```bash
-cd backend
+cd frontend
 npm install
 ```
 
-Create a `.env` file inside `backend/`:
+### 3. Install backend dependencies
+
+```bash
+cd ../backend
+npm install
+```
+
+### 4. Set up your environment variables
+
+In `backend/.env`, add your Groq API key:
 
 ```env
-OPENROUTER_API_KEY=your_openrouter_api_key_here
+GROQ_API_KEY=your_groq_api_key
 ```
 
-#### Frontend Setup
+### 5. Start both servers
 
-```bash
-cd ../frontend
-npm install
-```
-
----
-
-### 3. Run the App
-
-#### Start Backend Server
+**In one terminal:**
 
 ```bash
 cd backend
-node server.js
+node index.js
 ```
 
-Server runs on: `http://localhost:5000`
-
-#### Start Frontend
+**In another terminal:**
 
 ```bash
-cd ../frontend
+cd frontend
 npm run dev
 ```
 
-Frontend runs on: `http://localhost:3000`
+App will be available at `http://localhost:3000`
 
 ---
 
-## 🧠 API: `/ask` (LLM Integration)
+## 🧠 AI Integration Details
 
-The **frontend chatbot** sends a POST request to the backend `/ask` endpoint. It looks like this behind the scenes:
+The chatbot uses the [Groq API](https://console.groq.com/docs) with the model:
 
-### Request
-
-```json
-POST /ask
-Content-Type: application/json
-
-{
-  "messages": [
-    { "role": "user", "content": "Hello" },
-    { "role": "assistant", "content": "Hi! How can I help you?" },
-    { "role": "user", "content": "Tell me a joke" }
-  ]
-}
+```
+model: llama3-70b-8192
 ```
 
-### Response
-
-```json
-{
-  "answer": "Why don't scientists trust atoms? Because they make up everything!"
-}
-```
-
-> The frontend passes the chat history (`messages[]`) to maintain context between replies.
+Backend sends user messages to Groq and streams back the assistant’s response.
 
 ---
 
-## 📁 Project Structure
+## 📂 Project Structure
 
 ```
-ai-chatbot-app/
-├── backend/
-│   ├── server.js          # Express API backend
-│   ├── .env               # API key (not committed)
-├── frontend/
-│   ├── pages/
-│   │   └── index.js       # Main chatbot UI
-│   ├── components/
-│   │   └── ChatBox.jsx    # (Optional UI components)
-│   └── public/
-│       └── ...
-├── README.md
-└── screenshots/           # Add UI screenshots here
+/frontend         # Next.js frontend
+  /pages
+    index.js      # Main UI
+  /public
+  /styles
+/backend          # Express.js backend
+  index.js        # Chat route with Groq integration
+  .env            # API key for Groq
 ```
 
 ---
 
-## ✅ To-Do / Ideas
+## 📸 Screenshots
 
-* [ ] Add TTS (Text to Speech) replies
-* [ ] Add system prompt config (for LLM personality)
-* [ ] Track and store chat history locally
-* [ ] Switch between models (Mistral, Claude, etc.)
-
----
-
-## 📄 License
-
-This project is open-source and free to use under the **MIT License**.
+✅ Task & Feedback Tabs
+<img src="./screenshots/task-feedback-ui.jpg" width="500" alt="Task & Feedback UI"/>
+🤖 AI Chat Assistant
+<img src="./screenshots/ai-chat-ui.jpg" width="500" alt="AI Chat UI"/>
 
 ---
 
-## 🧠 Credits
+## 📌 Notes
 
-* [OpenRouter.ai](https://openrouter.ai/) for LLM API
-* [Mistral](https://mistral.ai/) for open-weight models
-* You, for building awesome things 💪
+* This project is free, local-first, and no user data is stored permanently.
+* All AI chat is routed securely via your own API key to Groq.
+* Only chatbot requires internet; rest of the app works offline.
 
 ---
 
+## 📃 License
 
-Let me know!
-```
+MIT
+
+---
+
