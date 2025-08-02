@@ -97,17 +97,25 @@ Backend sends user messages to Groq and streams back the assistant’s response.
   index.js        # Chat route with Groq integration
   .env            # API key for Groq
 ```
+---
+## 📸 UI Screenshots
+
+Below are some previews of the application interfaces:
+
+### ✅ Task Manager Panel 
+A clean dashboard layout to manage tasks.
+
+<img src="./screenshots/task-manager-ui.png" alt="Task Manager UI" width="700"/>
 
 ---
 
-## 📸 Screenshots
+### 🤖 AI Chat Assistant 
+A conversational AI assistant interface optimized for mobile screens.
 
-✅ Task & Feedback Tabs
-<img src="./screenshots/task-manager-ui.png" width="500" alt="Task & Feedback UI"/>
-🤖 AI Chat Assistant
-<img src="./screenshots/ai-chat-ui.png" width="500" alt="AI Chat UI"/>
+<img src="./screenshots/ai-chat-ui.png" alt="AI Chat UI" width="300"/>
 
 ---
+
 
 ## 📌 Notes
 
